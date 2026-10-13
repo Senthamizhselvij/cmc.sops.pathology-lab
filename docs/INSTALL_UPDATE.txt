@@ -1,0 +1,57 @@
+PATHOLOGY LAB UPDATED BUILD
+===========================
+
+Main workflow changes
+----------------------
+1. Dashboard is now a real patient dashboard with Patient ID search.
+2. New Patient Registration includes a unique Patient ID (1-12 letters/numbers).
+3. Month field removed.
+4. Patient list columns are:
+   Receipt ID | Date | Patient Name | Patient ID | Age | Gender | Phone | Address | Action
+5. Tests can be added without entering results.
+6. After a test is added, Patient Tests shows the action as "Saved".
+7. Clicking "Saved" opens the editable result form.
+8. Results can be entered later and edited again at any time.
+9. No Cancel button is shown for individual added tests.
+10. Patient report shows test names when results are pending.
+11. After results are entered, the report shows the full entered descriptions/results/unit/reference range.
+12. Patient report does not show any test amount or total amount.
+
+For an EXISTING database
+------------------------
+1. Back up the database first.
+2. Select pathology_lab in phpMyAdmin.
+3. Run database_patient_updates.sql once.
+4. If report cancellation fields were not already installed, run database_reports_update.sql once.
+5. Keep your existing patient/test data. Do NOT import database.sql over a live database.
+
+For a NEW database
+------------------
+1. Import database.sql.
+2. Log in and use the application normally.
+
+XAMPP
+-----
+Copy the pathology-lab folder into:
+C:\xampp\htdocs\
+
+Then open:
+http://localhost/pathology-lab/
+
+The application requires Apache, PHP and MySQL in XAMPP.
+
+REPORT DATE + CANCELLATION UPDATE
+---------------------------------
+Run this additional SQL once on an EXISTING database:
+
+    database_report_date_cancel_update.sql
+
+Do NOT run database.sql again on an existing installation.
+
+When entering/editing a result, Report Date is selected from the calendar.
+It must be between the Registration Date and today's date.
+The patient report displays both Registration Date and Report Date.
+
+To cancel a final report, open the patient report, enter a mandatory cancellation reason, and confirm.
+The system stores the logged-in username + role, cancellation date/time, and reason.
+The Cancel Report page displays all of these details.

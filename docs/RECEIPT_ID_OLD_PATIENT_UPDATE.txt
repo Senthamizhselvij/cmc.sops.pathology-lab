@@ -1,0 +1,11 @@
+Receipt ID / Old Patient behavior
+
+Receipt ID may repeat. Old/New classification is based on the complete patients table, not only the selected report date.
+
+For each normalized Receipt ID (trimmed and case-insensitive):
+- The earliest patient database record (lowest patients.id) is NEW.
+- Every later patient record with the same Receipt ID is OLD.
+
+This means if PAPULAL was registered once earlier and is registered again today, today's PAPULAL record is OLD even though the earlier PAPULAL record is outside the selected Daily Report date.
+
+The same classification is used by Daily Report, Weekly Report, and Summary Report. Cancelled records remain excluded from the report rows, but an earlier matching record still establishes that a later registration with the same Receipt ID is OLD.

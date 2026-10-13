@@ -1,0 +1,22 @@
+REPORT SYSTEM
+=============
+
+Separate report pages:
+- daily_report.php
+- weekly_report.php
+- summary_report.php
+- cancel_report.php
+
+Patient report:
+- report.php
+- Shows every test that has been added.
+- A test without a result is shown only by test name.
+- A test with results is shown with its entered descriptions/results/unit/reference range.
+- Patient report never displays test amount/price.
+- Result values remain editable from the Patient Tests screen.
+
+Existing database migration:
+- database_reports_update.sql -> report cancellation fields
+- database_patient_updates.sql -> Patient ID field and Receipt ID widening
+
+Do not import database.sql again if the live database already contains patient data.

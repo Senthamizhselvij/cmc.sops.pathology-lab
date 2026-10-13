@@ -1,0 +1,17 @@
+PER-TEST RESULT DATE UPDATE
+
+This version supports a different result date for every laboratory test.
+
+Example:
+- CBC -> 06/10/2026
+- BT / CT -> 07/10/2026
+- HIV -> 09/10/2026
+
+Each test stores its own result date. The Patient Tests page displays the date
+next to each test, and the final report displays the result date for each test.
+
+DATABASE:
+Run database_per_test_result_date_update.sql once in phpMyAdmin on the existing
+pathology_lab database.
+
+Do NOT re-import database.sql into an existing database with patient data.

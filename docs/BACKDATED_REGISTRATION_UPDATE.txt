@@ -1,0 +1,22 @@
+BACKDATED PATIENT REGISTRATION UPDATE
+
+Changes:
+- Registration Date is selectable, defaults to today, and disallows future dates.
+- Receipt ID and Patient ID are optional. Leave either blank if unknown.
+- Blank IDs are saved as SQL NULL.
+- The internal patients.id remains the link for tests/results.
+- includes/ensure_schema.php updates existing database schemas when the app loads.
+- Existing patient records and known IDs are preserved.
+
+How to use:
+1. Back up your pathology_lab database first.
+2. Copy the updated project files into your XAMPP htdocs folder.
+3. Start Apache and MySQL and open the project once so schema compatibility updates run.
+4. Open New Patient Registration and choose 09 October 2026 for each late entry.
+5. Leave Receipt ID and Patient ID blank if unknown; save each patient.
+6. Add the tests that were sent to the lab through the normal patient tests page.
+
+Important:
+- Confirm patient identity against the original lab paperwork before entering results.
+- This does not automatically attach samples/tests that are only on paper; add those tests to each patient record.
+- Back up the database before deploying.

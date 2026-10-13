@@ -1,0 +1,28 @@
+PATHOLOGY LAB - UPDATED VERSION
+
+This version fixes the "Unknown column patient_code" error when you use an older pathology_lab database.
+
+WHAT CHANGED
+1. Patient ID (patient_code) is supported everywhere.
+2. Existing patient rows receive a safe temporary Patient ID such as P123 so old data is not lost.
+3. Patient ID is 1-12 alphanumeric characters for new registrations.
+4. Report Date and cancellation fields are automatically added if missing.
+5. test_parameters.price is added automatically if an older database does not have it.
+6. The application does NOT delete existing patients/tests.
+
+INSTALL
+1. Extract this folder as C:\xampp\htdocs\pathology-lab
+2. Start Apache and MySQL in XAMPP.
+3. Make sure the database pathology_lab already exists.
+4. Open http://localhost/pathology-lab/
+5. The application will automatically add the missing schema fields on first load.
+
+IMPORTANT
+- Do NOT import database.sql again into an existing database.
+- Keep a phpMyAdmin backup before the first run.
+- If your MySQL user has no ALTER permission, use the supplied SQL update files manually.
+
+
+CATALOG UPDATE v2
+-----------------
+For an existing database, run database_test_catalog_update_v2.sql once. It removes the legacy "Thyroid" test, keeps "Thyroid Profile", and changes "Viral Marker" to ₹500.
